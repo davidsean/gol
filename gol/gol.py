@@ -57,21 +57,6 @@ class GOL:
             # self.board=update
 
 
-    # def render_surface(self, img_arr:np.ndarray) -> pygame.Surface:
-    #     """
-    #     Process numpy data into a pygame surface
-        
-    #     :param im_arr: data as a numpy array
-    #     :return: pygame surface
-    #     """
-    #     # add explicit color axis,
-    #     img_rgb = np.reshape(img_arr, newshape=(img_arr.shape[0],img_arr.shape[1],1))
-    #     # binary to uint8 greyscale
-    #     img_rgb = (img_arr*255).astype(np.uint8)
-    #     # and greyscale to RGB
-    #     img_rgb = np.repeat(img_rgb,3,axis=2)
-    #     img_surface = pygame.surfarray.make_surface(img_rgb)
-    #     return img_surface
 
 
 
