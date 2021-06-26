@@ -9,7 +9,7 @@ class pygameLoader:
 
     pygame.init()
 
-    self.fps = 10
+    self.fps = 60
     self.fpsClock = pygame.time.Clock()
     
     self.width = 640
