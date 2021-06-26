@@ -48,11 +48,17 @@ class GOL:
                 self.ruleOfLifeAlive[neighborCt], 
                 self.ruleOfLifeDead[neighborCt])
             # these indices will potentially change states
-            change_idx = np.where(np.ravel(self.board)!=np.ravel(update))
-            # print(change_idx)
+            change_idx = np.where(np.ravel(self.board)!=np.ravel(update))[0]
+
+            r = np.random.normal(loc=0.0, scale=self.kT, size=len(change_idx))
+            r = r**2
+            to_change = (np.where(r<1))[0]
+            # print(r)
+            # print(to_change)
+            # print(r[to_change])
             # old = update[change_idx]
             # apply the state changes
-            folded_idx = np.unravel_index(change_idx, (self.width, self.height))
+            folded_idx = np.unravel_index(change_idx[to_change], (self.width, self.height))
             self.board[folded_idx] = update[folded_idx]
             # self.board=update
 
@@ -63,7 +69,7 @@ class GOL:
 
 if __name__=='__main__':
 
-    gol = GOL(8,8)
+    gol = GOL(8,8, kT=1)
     gol.board[2:5,2:5] = 1
 
     print(gol)

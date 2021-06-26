@@ -5,18 +5,18 @@ import numpy as np
 
 class pygameLoader:
 
-  def __init__(self):
+  def __init__(self, kT=0):
 
     pygame.init()
 
-    self.fps = 5
+    self.fps = 10
     self.fpsClock = pygame.time.Clock()
     
     self.width = 640
     self.height = 480
     self.screen = pygame.display.set_mode((self.width, self.height))
 
-    self.gol = GOL(self.width,self.height)
+    self.gol = GOL(self.width,self.height, kT=kT)
 
   def render_surface(self, img_arr:np.ndarray) -> pygame.Surface:
       """
